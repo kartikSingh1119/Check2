@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Algorithm Portfolio</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    .problem-card { background: white; padding: 15px; margin: 15px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    h2 { margin: 0 0 10px 0; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    .app-card { margin: 10px 0; padding: 10px; background: #fafafa; border-left: 4px solid #4CAF50; }
+    button { margin-top: 10px; padding: 5px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Algorithm Portfolio</h1>
+  <div id="problems-container"></div>
+
+  <script>
+    fetch('problems.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('problems-container');
+        data.forEach(problem => {
+          const card = document.createElement('div');
+          card.className = 'problem-card';
+
+          let applicationsHTML = '';
+          problem.applications.forEach(app => {
+            applicationsHTML += `
+              <div class="app-card">
+                <strong>Scenario:</strong> ${app.scenario}<br>
+                <strong>Example:</strong> ${app.example}<br>
+                <strong>Benefit:</strong> ${app.benefit}
+              </div>
+            `;
+          });
+
+          card.innerHTML = `
+            <h2>${problem.name}</h2>
+            <p>${problem.description}</p>
+            <h3>Applications:</h3>
+            ${applicationsHTML}
+            <h3>Code:</h3>
+            <pre>${problem.code}</pre>
+            <p><strong>Time Complexity:</strong> ${problem.time_complexity} | <strong>Space Complexity:</strong> ${problem.space_complexity}</p>
+            <a href="${problem.github_link}" target="_blank">GitHub Link</a>
+          `;
+
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error('Error fetching JSON:', err));
+  </script>
+</body>
+</html>
