@@ -5,7 +5,7 @@
     "description": "Find two numbers in an array that sum to a target value.",
     "applications": [
       {
-        "scenario": "Gaming / In-Game Purchases",
+        "scenario": "hellow mere bacho",
         "example": "Player has 1,000 coins. Items: [300, 400, 600, 700]. Suggested pair: 300 + 700 = 1,000.",
         "benefit": "Increases player satisfaction and engagement."
       },
