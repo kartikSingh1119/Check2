@@ -16,7 +16,7 @@
   <div id="problems-container"></div>
 
   <script>
-    fetch('problems.json')
+    fetch('https://raw.githubusercontent.com/kartikSingh1119/Check2/refs/heads/main/problems.json')
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('problems-container');
