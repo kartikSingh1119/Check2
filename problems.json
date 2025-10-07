@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "Two Sum",
+    "description": "Find two numbers in an array that sum to a target value.",
+    "applications": [
+      {
+        "scenario": "Gaming / In-Game Purchases",
+        "example": "Player has 1,000 coins. Items: [300, 400, 600, 700]. Suggested pair: 300 + 700 = 1,000.",
+        "benefit": "Increases player satisfaction and engagement."
+      },
+      {
+        "scenario": "E-commerce / Discounts",
+        "example": "Cart items: ₹400, ₹600, ₹300, ₹700. Suggested pair: ₹400 + ₹600 = ₹1,000 to get discount.",
+        "benefit": "Improves upselling and customer experience."
+      }
+    ],
+    "code": "// JavaScript code for Two Sum\nfunction twoSum(nums, target) {\n  const map = {};\n  for (let i = 0; i < nums.length; i++) {\n    const complement = target - nums[i];\n    if (map[complement] !== undefined) {\n      return [map[complement], i];\n    }\n    map[nums[i]] = i;\n  }\n  return [];\n}",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(n)",
+    "github_link": "https://github.com/yourusername/two-sum-project"
+  },
+  {
+    "id": 2,
+    "name": "Palindrome Check",
+    "description": "Check if a string is a palindrome.",
+    "applications": [
+      {
+        "scenario": "Data Validation",
+        "example": "Ensuring symmetrical sequences in DNA strings.",
+        "benefit": "Useful in bioinformatics for sequence analysis."
+      }
+    ],
+    "code": "// JavaScript code for palindrome check\nfunction isPalindrome(str) {\n  return str === str.split('').reverse().join('');\n}",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(n)",
+    "github_link": "https://github.com/yourusername/palindrome-project"
+  }
+]
